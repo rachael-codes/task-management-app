@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Task - Management App </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Register</h2>
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <label for="password" class="form-label">Password</label>
+            <div class="input-group mb-3"> <!-- Use input-group for password input -->
+                <input type="password" class="form-control" id="password" name="password" minlength="7" required>
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fas fa-eye" id="togglePassword"></i>
+                    </span>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div class="mt-3 text-center">
+        Already have an account? <a href="/login">Login</a>
+    </div>
+
+
+    <script>
+        const passwordField = document.getElementById('password');
+        const togglePasswordButton = document.getElementById('togglePassword');
+    
+        togglePasswordButton.addEventListener('click', function () {
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                togglePasswordButton.classList.remove('fa-eye');
+                togglePasswordButton.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                togglePasswordButton.classList.remove('fa-eye-slash');
+                togglePasswordButton.classList.add('fa-eye');
+            }
+        });
+    </script>
+    
+</body>
+</html>

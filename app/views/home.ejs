@@ -1,0 +1,25 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Welcome <%= user.name %>!</h1>
+    <img src="<%= user.profilePictureUrl %>" alt="Profile Picture" />
+
+    <!-- Task creation form -->
+    <form action="/create-task" method="post">
+    <!-- Task input fields -->
+    <button type="submit">Create Task</button>
+    </form>
+
+    <!-- Profile picture upload form -->
+    <form action="/upload-profile-picture" method="post" enctype="multipart/form-data">
+    <input type="file" name="profilePicture" accept="image/*">
+    <button type="submit">Upload Profile Picture</button>
+    </form>
+</body>
+</html>
